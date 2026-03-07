@@ -24,25 +24,30 @@ camera.position.set(0, 0, 5);
 // ==========================
 const container = document.getElementById("container3D");
 const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
 renderer.outputEncoding = THREE.sRGBEncoding;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1;
+
 container.appendChild(renderer.domElement);
 
-// Met le renderer à la taille de la div container3D
+// Resize renderer selon la div
 function setRendererSize() {
     const width = container.clientWidth;
     const height = container.clientHeight;
+
     renderer.setSize(width, height);
+
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
 }
 setRendererSize();
 
 // ==========================
-// LIGHTS (RÉALISTES)
+// LIGHTS
 // ==========================
 const keyLight = new THREE.DirectionalLight(0xffffff, 1.5);
 keyLight.position.set(5, 5, 5);
@@ -61,20 +66,26 @@ const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
 scene.add(ambientLight);
 
 // ==========================
-// MOUSE POSITION
+// MOUSE
 // ==========================
-let mouseX = container.clientWidth / 2;
-let mouseY = container.clientHeight / 2;
+let mouseX = 0;
 
 // ==========================
 // CONTROLS
 // ==========================
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableZoom = false;  // zoom désactivé par défaut
+
+controls.enableZoom = false;
 controls.zoomSpeed = 1.2;
-controls.minDistance = 1;
-controls.maxDistance = 10;
 controls.enablePan = false;
+
+// empêche rotation verticale
+controls.minPolarAngle = Math.PI / 2;
+controls.maxPolarAngle = Math.PI / 2;
+
+// rotation plus fluide
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
 
 // ==========================
 // LOADER
@@ -84,10 +95,11 @@ let object;
 
 loader.load(
     "./model-3d/personnage-final-2.glb",
+
     function (gltf) {
+
         object = gltf.scene;
 
-        // centrer et scaler
         const box = new THREE.Box3().setFromObject(object);
         const center = box.getCenter(new THREE.Vector3());
         const size = box.getSize(new THREE.Vector3());
@@ -96,14 +108,15 @@ loader.load(
         object.position.y -= center.y;
         object.position.z -= center.z;
 
+        // ==========================
+        // SCALE MODIFIÉ POUR AGRANDIR
+        // ==========================
         const maxSize = Math.max(size.x, size.y, size.z);
-        const scale = 3 / maxSize;
+        const scale = (3 / maxSize) * 2; // ← modèle agrandi de 30%
         object.scale.setScalar(scale);
 
-        // léger ajustement vertical
         object.position.y -= 0.5;
 
-        // Shadows pour chaque mesh
         object.traverse((child) => {
             if (child.isMesh) {
                 child.castShadow = true;
@@ -113,41 +126,60 @@ loader.load(
         });
 
         scene.add(object);
+
     },
+
     function (xhr) {
         console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
     },
+
     function (error) {
         console.error("Erreur chargement modèle :", error);
     }
+
 );
 
 // ==========================
-// FLAG pour activer rotation & zoom
+// ROTATION ENABLE
 // ==========================
 let rotationEnabled = false;
 
-// bouton pour activer la rotation et le zoom
 const viewButton = document.querySelector('.view3D');
+
 viewButton.addEventListener('click', () => {
     rotationEnabled = !rotationEnabled;
-    controls.enableZoom = rotationEnabled; // zoom activé uniquement après clic
+    controls.enableZoom = rotationEnabled;
 });
 
 // ==========================
 // ANIMATION
 // ==========================
+let targetRotation = 0;
+let currentRotation = 0;
+
 function animate() {
+
     requestAnimationFrame(animate);
 
-    if (object && rotationEnabled) {
-        object.rotation.y = -3 + (mouseX / container.clientWidth) * 3;
-        object.rotation.x = -1.2 + (mouseY * 2.5) / container.clientHeight;
+    if (object) {
+
+        // rotation automatique lente
+        object.rotation.y += 0.002; // vitesse rotation automatique
+
+        // rotation souris si activée
+        if (rotationEnabled) {
+            targetRotation = (mouseX / container.clientWidth - 0.5) * 2;
+            currentRotation += (targetRotation - currentRotation) * 0.05;
+            object.rotation.y += currentRotation * 0.02;
+        }
+
     }
 
     controls.update();
     renderer.render(scene, camera);
+
 }
+
 animate();
 
 // ==========================
@@ -163,5 +195,4 @@ window.addEventListener("resize", () => {
 container.addEventListener('mousemove', (e) => {
     const rect = container.getBoundingClientRect();
     mouseX = e.clientX - rect.left;
-    mouseY = e.clientY - rect.top;
 });
