@@ -1,4 +1,4 @@
-// script.js
+// script qui gère le menu burger et la fermeture du menu en cliquant n'importe où sur la page
 
 document.addEventListener('DOMContentLoaded', () => {
     const burger = document.querySelector('.menuBurger');
@@ -22,4 +22,20 @@ document.addEventListener('DOMContentLoaded', () => {
     nav.addEventListener('click', (e) => {
         e.stopPropagation();
     });
+});
+
+
+// script pour la fleche de retour qui renvoit au debut de la page
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const flecheRetour = document.querySelector(".flecheRetour");
+
+    flecheRetour.addEventListener("click", function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+
 });
