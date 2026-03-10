@@ -36,16 +36,23 @@ header {
     z-index: 2000;
 
     background: linear-gradient(160deg, rgba(25, 30, 40, 0.95), rgba(12, 15, 22, 0.95));
-    border: 1px solid rgba(250, 249, 246, 0.16);
+    border: 1px solid rgba(175, 0, 0, 0.50);
     backdrop-filter: blur(10px);
     border-radius: 10px;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.menuBurger:active {
+    transform: translateY(2px) scale(0.97);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 /* Navigation hors écran par défaut */
 .navigation {
     z-index: 1000;
     background: linear-gradient(160deg, rgba(25, 30, 40, 0.95), rgba(12, 15, 22, 0.95));
-    border: 1px solid rgba(250, 249, 246, 0.16);
+    border: 1px solid rgba(175, 0, 0, 0.50);
     backdrop-filter: blur(10px);
     border-radius: 20px;
     display: flex;
@@ -90,7 +97,7 @@ header {
 }
 
 .navigation li a:hover {
-    text-decoration: underline;
+    border-bottom: 2px solid rgba(175, 0, 0, 0.50);
 }
 
 .titre {
@@ -115,8 +122,12 @@ header {
 
 .arrow-ring {
     position: absolute;
+    top: 50%;
+    left: 50%;
     width: 280px;
     height: 280px;
+    margin-top: -140px;
+    margin-left: -140px;
     border-radius: 50%;
     z-index: 1;
     pointer-events: none;
@@ -127,12 +138,14 @@ header {
     position: absolute;
     top: 50%;
     left: 50%;
+    margin-top: -12px;
+    margin-left: -12px;
     font-size: 24px;
     font-weight: bold;
-    color: rgba(250, 249, 246, 0.92);
-    text-shadow: 0 0 10px rgba(250, 249, 246, 0.45);
+    color: rgba(175, 0, 0, 0.92);
+    text-shadow: 0 0 10px rgba(175, 0, 0, 0.50);
     transform: rotate(calc(var(--i) * 30deg)) translateY(-140px) rotate(90deg);
-    transform-origin: center;
+    transform-origin: 12px 12px;
 }
 
 @keyframes anneauRotation {
@@ -171,9 +184,10 @@ section {
     position: absolute;
     top: 100%;
     padding: 10px 20px;
-    background-color: #FAF9F6;
-    color: #0B0E14;
-    border: none;
+    background: linear-gradient(160deg, rgba(25, 30, 40, 0.95), rgba(12, 15, 22, 0.95));
+    border: 1px solid rgba(175, 0, 0, 0.50);
+    backdrop-filter: blur(10px);
+    color: #FAF9F6;
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
@@ -184,7 +198,6 @@ section {
 }
 
 .view3D:hover {
-    background-color: #e0e0e0;
     transform: scale(1.10);
 }
 
@@ -212,6 +225,7 @@ p {
     margin-top: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(175, 0, 0, 0.50);
 }
 
 .flecheRetour {
@@ -227,9 +241,16 @@ p {
     z-index: 2000;
 
     background: linear-gradient(160deg, rgba(25, 30, 40, 0.95), rgba(12, 15, 22, 0.95));
-    border: 1px solid rgba(250, 249, 246, 0.16);
+    border: 1px solid rgba(175, 0, 0, 0.50);
     backdrop-filter: blur(10px);
     border-radius: 10px;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.flecheRetour:active {
+    transform: translateY(2px) scale(0.97);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 footer {
@@ -266,14 +287,14 @@ footer .liens {
 /* Sélectionne toutes les icônes dans le div .liens */
 .liens i {
     font-size: 30px;
-    color: #ffffff;
+    color: #FAF9F6;
     margin: 0 10px;
     transition: transform 0.3s, color 0.3s;
 }
 
 .liens i:hover {
     transform: scale(1.2);
-    color: red;
+    color: rgba(175, 0, 0, 0.50);
 }
 
 
@@ -298,7 +319,7 @@ footer .liens {
         transform: translateX(-50%);
         background: linear-gradient(160deg, rgba(25, 30, 40, 0.95), rgba(12, 15, 22, 0.95));
         width: 80%;
-        max-width: 900px;
+        max-width: 1000px;
         height: 80px;
         border-radius: 40px;
 
@@ -331,11 +352,16 @@ footer .liens {
     .arrow-ring {
         width: 420px;
         height: 420px;
+        margin-top: -210px;
+        margin-left: -210px;
     }
 
     .arrow-ring .arrow {
         font-size: 30px;
+        margin-top: -15px;
+        margin-left: -15px;
         transform: rotate(calc(var(--i) * 30deg)) translateY(-210px) rotate(90deg);
+        transform-origin: 15px 15px;
     }
 
 }
