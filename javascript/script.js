@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Clique sur le burger pour ouvrir/fermer
     burger.addEventListener('click', (e) => {
         nav.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
         e.stopPropagation(); // empêche le clic de se propager au document
     });
 
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Si le menu est ouvert ET que le clic n'est pas sur le menu
         if (nav.classList.contains('active') && !nav.contains(e.target)) {
             nav.classList.remove('active');
+            document.body.classList.remove('menu-open');
         }
     });
 
