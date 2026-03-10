@@ -228,6 +228,66 @@ p {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+section h2 {
+    font-family: "EB Garamond", serif;
+    font-weight: bold;
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+#ObjectifRecherche {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.images-objectif img {
+    max-width: 300px;
+    height: auto;
+}
+
+.contenuObjRecherche {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.blender {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blender img {  
+    max-width: 300px;
+    height: auto;
+}
+
+.LogicielSecondaire {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+    gap: 50px;
+}
+
+.LogicielSecondaire > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.LogicielSecondaire img {
+    max-width: 80px;
+    height: auto;
+}
+
 #PrésentationProjet {
     display: flex;
     flex-direction: column;
@@ -243,6 +303,7 @@ p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(175, 0, 0, 0.50);
 }
+
 
 .flecheRetour {
     display: flex;
