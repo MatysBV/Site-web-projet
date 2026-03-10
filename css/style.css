@@ -35,14 +35,18 @@ header {
     left: 20px;
     z-index: 2000;
 
-    background-color: rgba(28, 31, 38, 0.8);
+    background: linear-gradient(160deg, rgba(25, 30, 40, 0.95), rgba(12, 15, 22, 0.95));
+    border: 1px solid rgba(250, 249, 246, 0.16);
+    backdrop-filter: blur(10px);
     border-radius: 10px;
 }
 
 /* Navigation hors écran par défaut */
 .navigation {
     z-index: 1000;
-    background-color: rgba(28, 31, 38, 0.8);
+    background: linear-gradient(160deg, rgba(25, 30, 40, 0.95), rgba(12, 15, 22, 0.95));
+    border: 1px solid rgba(250, 249, 246, 0.16);
+    backdrop-filter: blur(10px);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -90,14 +94,55 @@ header {
 }
 
 .titre {
+    position: relative;
     display: flex;
-    flex-direction: row;
     justify-content: center;
+    align-items: center;
     font-family: "EB Garamond", serif;
     font-weight: bold;
     font-size: 48px;
-    align-items: center;
     margin-top: 30vh;
+    min-height: 260px;
+}
+
+.titreTexte {
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+    padding: 16px 32px;
+    letter-spacing: 1px;
+}
+
+.arrow-ring {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+    animation: anneauRotation 9s linear infinite;
+}
+
+.arrow-ring .arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(250, 249, 246, 0.92);
+    text-shadow: 0 0 10px rgba(250, 249, 246, 0.45);
+    transform: rotate(calc(var(--i) * 30deg)) translateY(-140px) rotate(90deg);
+    transform-origin: center;
+}
+
+@keyframes anneauRotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 section {
@@ -181,7 +226,9 @@ p {
     right: 20px;
     z-index: 2000;
 
-    background-color: rgba(28, 31, 38, 0.8);
+    background: linear-gradient(160deg, rgba(25, 30, 40, 0.95), rgba(12, 15, 22, 0.95));
+    border: 1px solid rgba(250, 249, 246, 0.16);
+    backdrop-filter: blur(10px);
     border-radius: 10px;
 }
 
@@ -246,17 +293,19 @@ footer .liens {
     .navigation {
         z-index: 1000;
         position: fixed;
-        top: 0;
-        left: 0;
-        background-color: rgba(28, 31, 38, 0.8);
-        width: 100%;
-        height: 100px;
-        border-radius: 0 0 20px 20px;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(160deg, rgba(25, 30, 40, 0.95), rgba(12, 15, 22, 0.95));
+        width: 80%;
+        max-width: 900px;
+        height: 80px;
+        border-radius: 40px;
 
 
         display: flex;
         flex-direction: row;
-        justify-content:center;
+        justify-content: center;
     }
 
     /* menu horizontal */
@@ -272,7 +321,21 @@ footer .liens {
 
     .titre {
         font-size: 80px;
+        min-height: 360px;
+    }
+
+    .titreTexte {
+        padding: 20px 42px;
+    }
+
+    .arrow-ring {
+        width: 420px;
+        height: 420px;
+    }
+
+    .arrow-ring .arrow {
+        font-size: 30px;
+        transform: rotate(calc(var(--i) * 30deg)) translateY(-210px) rotate(90deg);
     }
 
 }
-
