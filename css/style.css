@@ -179,6 +179,12 @@ section {
     flex-direction: column;
 }
 
+h1 {
+    font-family: "EB Garamond", serif;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
 #container3D {
     position: relative;
     width: 100%;
@@ -297,7 +303,7 @@ section h2 {
 }
 
 .video-personnage {
-    width: 80vw;
+    width: 60vw;
     height: auto;
     margin-top: 20px;
     border-radius: 10px;
@@ -323,7 +329,7 @@ section h2 {
 }
 
 .imageBox {
-    width: 350px;
+    width: 300px;
     height: auto;
     overflow: hidden;
     border-radius: 10px;
@@ -415,6 +421,50 @@ footer .liens {
 
 
 
+
+/* Lightbox */
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-img {
+    max-width: 90vw;
+    max-height: 85vh;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+    object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 48px;
+    color: #FAF9F6;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease, transform 0.2s ease;
+    z-index: 3001;
+}
+
+.lightbox-close:hover {
+    color: rgba(175, 0, 0, 0.9);
+    transform: scale(1.2);
+}
 
 /* VERSION DESKTOP */
 @media screen and (min-width: 1024px) {

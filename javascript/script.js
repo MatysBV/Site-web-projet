@@ -46,3 +46,49 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+
+// script pour le lightbox (agrandir une image au clic)
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    // Créer l'overlay lightbox
+    const overlay = document.createElement("div");
+    overlay.classList.add("lightbox-overlay");
+
+    const closeBtn = document.createElement("span");
+    closeBtn.classList.add("lightbox-close");
+    closeBtn.textContent = "\u00D7";
+
+    const lightboxImg = document.createElement("img");
+    lightboxImg.classList.add("lightbox-img");
+
+    overlay.appendChild(closeBtn);
+    overlay.appendChild(lightboxImg);
+    document.body.appendChild(overlay);
+
+    // Fermer le lightbox
+    function closeLightbox() {
+        overlay.classList.remove("active");
+    }
+
+    closeBtn.addEventListener("click", closeLightbox);
+    overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) closeLightbox();
+    });
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeLightbox();
+    });
+
+    // Ajouter le clic sur toutes les images dans les sections
+    const sectionImages = document.querySelectorAll(".section img");
+    sectionImages.forEach((img) => {
+        img.style.cursor = "pointer";
+        img.addEventListener("click", () => {
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            overlay.classList.add("active");
+        });
+    });
+
+});
