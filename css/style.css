@@ -235,6 +235,7 @@ section h2 {
     margin-bottom: 20px;
     text-align: center;
 }
+
 #ObjectifRecherche {
     display: flex;
     flex-direction: column;
@@ -261,7 +262,7 @@ section h2 {
     align-items: center;
 }
 
-.blender img {  
+.blender img {
     max-width: 300px;
     height: auto;
 }
@@ -276,7 +277,7 @@ section h2 {
     gap: 20px;
 }
 
-.LogicielSecondaire > div {
+.LogicielSecondaire>div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -303,6 +304,43 @@ section h2 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(175, 0, 0, 0.50);
 }
+
+#ÉvolutionProjet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.imageÉvolution {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 60%;
+}
+
+.imageBox {
+    width: 350px;
+    height: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid rgba(175, 0, 0, 0.50);
+    transition: transform 0.3s ease;
+}
+
+.imageBox:hover {
+    transform: scale(1.05);
+}
+
+.imageBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 
 .flecheRetour {
     display: flex;
