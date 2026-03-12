@@ -673,8 +673,8 @@ footer .liens {
         left: 50%;
         transform: translateX(-50%);
         background: linear-gradient(160deg, rgba(25, 30, 40, 0.95), rgba(12, 15, 22, 0.95));
-        width: 80%;
-        max-width: 1000px;
+        width: 100%;
+        max-width: 1200px;
         height: 80px;
         border-radius: 40px;
 
