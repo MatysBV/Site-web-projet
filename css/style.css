@@ -380,6 +380,18 @@ section h2 {
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(175, 0, 0, 0.5);
 }
 
+.imagePrésentation {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 20px;
+}
+
 #ÉvolutionProjet {
     display: flex;
     flex-direction: column;
@@ -430,6 +442,7 @@ section h2 {
 }
 
 .imageBox img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
