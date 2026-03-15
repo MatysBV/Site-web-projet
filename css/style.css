@@ -455,6 +455,60 @@ section h2 {
     transform: scale(1.05);
 }
 
+.figmaBox {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 28px;
+}
+
+.figmaBox a {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    text-decoration: none;
+    border-radius: 14px;
+    overflow: hidden;
+    outline: none;
+}
+
+.figmaBox a::before {
+    content: "Voir le board Figma";
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    z-index: 2;
+    font-family: "EB Garamond", serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #FAF9F6;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+.figmaBox a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(11, 14, 20, 0.05) 25%, rgba(11, 14, 20, 0.75) 100%);
+    transition: background 0.35s ease;
+}
+
+.figmaBox a:hover::after {
+    background: linear-gradient(180deg, rgba(175, 0, 0, 0.08) 20%, rgba(11, 14, 20, 0.72) 100%);
+}
+
+.figmaBox a:focus-visible {
+    box-shadow: 0 0 0 2px rgba(250, 249, 246, 0.9), 0 0 0 4px rgba(175, 0, 0, 0.7);
+}
+
+.figmaBox img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .imageLabel {
     display: block;
     text-align: center;
