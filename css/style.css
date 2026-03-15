@@ -380,18 +380,54 @@ section h2 {
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(175, 0, 0, 0.5);
 }
 
-.imagePrésentation {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    width: 100%;
-    max-width: 800px;
-    margin-top: 20px;
+#PrésentationProjet { 
+    gap: 32px; 
 }
 
+#PrésentationProjet .video-personnage {
+    box-shadow: 0 8px 44px rgba(0,0,0,0.55), 0 0 0 1px rgba(175,0,0,0.38), 0 0 70px rgba(175,0,0,0.08);
+}
+#PrésentationProjet .video-personnage:hover {
+    box-shadow: 0 14px 56px rgba(0,0,0,0.65), 0 0 0 1px rgba(175,0,0,0.58), 0 0 90px rgba(175,0,0,0.14);
+}
+
+.renduFinal {
+    font-family: "EB Garamond", serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: rgba(250, 249, 246, 0.32);
+    text-align: center;
+    margin: -8px 0 -12px;
+}
+.renduFinal::before,
+.renduFinal::after {
+    content: '';
+    display: inline-block;
+    width: 36px;
+    height: 1px;
+    vertical-align: middle;
+    margin: 0 12px;
+    background: linear-gradient(90deg, transparent, rgba(175,0,0,0.5));
+}
+.renduFinal::after { background: linear-gradient(90deg, rgba(175,0,0,0.5), transparent); }
+
+.imagePrésentation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 16px;
+    width: 100%;
+    max-width: 820px;
+    margin-top: 0;
+}
+#PrésentationProjet .imagePrésentation .imageBox {
+    min-height: 180px;
+    flex: 1 1 calc(50% - 16px);
+    max-width: calc(50% - 8px);
+}
 #ÉvolutionProjet {
     gap: 30px;
 }
