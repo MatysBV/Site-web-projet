@@ -396,6 +396,31 @@ section h2 {
     gap: 30px;
 }
 
+#ProblemeProjet {
+    gap: 14px;
+}
+
+#ProblemeProjet h3 {
+    width: 100%;
+    max-width: 560px;
+    margin: 0;
+    padding: 14px 20px;
+    border-left: 3px solid rgba(175, 0, 0, 0.65);
+    border-radius: 0 12px 12px 0;
+    background: rgba(20, 25, 38, 0.55);
+    font-family: "EB Garamond", serif;
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+#ProblemeProjet h3:hover {
+    background: rgba(30, 37, 54, 0.75);
+    border-color: rgba(175, 0, 0, 1);
+    transform: translateX(5px);
+}
+
 .imageÉvolution {
     display: flex;
     flex-direction: row;
