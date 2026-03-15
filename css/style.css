@@ -38,38 +38,49 @@ body.menu-open .blur-overlay {
     opacity: 1;
 }
 
-/* Menu burger */
-.menuBurger {
+/* Eléments flottants partages */
+.menuBurger,
+.flecheRetour {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding: 10px;
     cursor: pointer;
-
     position: fixed;
-    top: 20px;
-    left: 20px;
     z-index: 2000;
-
-    background: linear-gradient(160deg, rgba(25, 30, 40, 0.95), rgba(12, 15, 22, 0.95));
-    border: 1px solid rgba(175, 0, 0, 0.50);
-    backdrop-filter: blur(10px);
     border-radius: 10px;
     transition: transform 0.1s ease, box-shadow 0.1s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-.menuBurger:active {
+.menuBurger {
+    top: 20px;
+    left: 20px;
+}
+
+.flecheRetour {
+    bottom: 20px;
+    right: 20px;
+}
+
+.menuBurger:active,
+.flecheRetour:active {
     transform: translateY(2px) scale(0.97);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.menuBurger,
+.navigation,
+.view3D,
+.flecheRetour {
+    background: linear-gradient(160deg, rgba(25, 30, 40, 0.95), rgba(12, 15, 22, 0.95));
+    border: 1px solid rgba(175, 0, 0, 0.50);
+    backdrop-filter: blur(10px);
 }
 
 /* Navigation hors écran par défaut */
 .navigation {
     z-index: 1000;
-    background: linear-gradient(160deg, rgba(25, 30, 40, 0.95), rgba(12, 15, 22, 0.95));
-    border: 1px solid rgba(175, 0, 0, 0.50);
-    backdrop-filter: blur(10px);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -106,9 +117,6 @@ body.menu-open .blur-overlay {
 
 .navigation li a {
     text-decoration: none;
-    color: #FAF9F6;
-    font-weight: bold;
-    font-size: 16px;
     padding: 5px 10px;
 }
 
@@ -226,9 +234,6 @@ h1::after {
     position: absolute;
     top: 100%;
     padding: 10px 20px;
-    background: linear-gradient(160deg, rgba(25, 30, 40, 0.95), rgba(12, 15, 22, 0.95));
-    border: 1px solid rgba(175, 0, 0, 0.50);
-    backdrop-filter: blur(10px);
     color: #FAF9F6;
     border-radius: 8px;
     cursor: pointer;
@@ -248,13 +253,15 @@ h1::after {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    transform: translateY(40px);
     padding: 50px 30px;
     background: linear-gradient(160deg, rgba(18, 22, 32, 0.6), rgba(11, 14, 20, 0.4));
     border: 1px solid rgba(175, 0, 0, 0.15);
     border-radius: 20px;
     backdrop-filter: blur(8px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: opacity 0.7s ease, transform 0.7s ease, box-shadow 0.4s ease;
 }
 
 .section:hover {
@@ -281,11 +288,6 @@ section h2 {
     justify-content: center;
     align-items: center;
     min-height: 80vh;
-}
-
-.images-objectif img {
-    max-width: 300px;
-    height: auto;
 }
 
 .contenuObjRecherche {
@@ -360,13 +362,6 @@ section h2 {
     transform: scale(1.1);
 }
 
-#PrésentationProjet {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .video-personnage {
     width: 100%;
     max-width: 800px;
@@ -395,10 +390,6 @@ section h2 {
 }
 
 #ÉvolutionProjet {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     gap: 30px;
 }
 
@@ -427,6 +418,7 @@ section h2 {
 }
 
 .imageBox {
+    position: relative;
     flex: 1;
     max-width: 350px;
     height: auto;
@@ -518,7 +510,6 @@ section h2 {
     letter-spacing: 2px;
     text-transform: uppercase;
     color: rgba(250, 249, 246, 0.5);
-    padding: 10px 0 0;
     position: absolute;
     top: 0;
     left: 0;
@@ -529,51 +520,15 @@ section h2 {
     border-radius: 14px 14px 0 0;
 }
 
-.imageBox {
-    position: relative;
-}
-
 footer .contact i {
     margin-right: 8px;
     color: rgba(175, 0, 0, 0.6);
     font-size: 14px;
 }
 
-.section {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.7s ease, transform 0.7s ease, box-shadow 0.4s ease;
-}
-
 .section.visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-
-.flecheRetour {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 10px;
-    cursor: pointer;
-
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 2000;
-
-    background: linear-gradient(160deg, rgba(25, 30, 40, 0.95), rgba(12, 15, 22, 0.95));
-    border: 1px solid rgba(175, 0, 0, 0.50);
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.flecheRetour:active {
-    transform: translateY(2px) scale(0.97);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 footer {
@@ -739,16 +694,11 @@ footer .liens {
         top: 10px;
         left: 50%;
         transform: translateX(-50%);
-        background: linear-gradient(160deg, rgba(25, 30, 40, 0.95), rgba(12, 15, 22, 0.95));
         width: 100%;
         max-width: 1200px;
         height: 80px;
         border-radius: 40px;
-
-
-        display: flex;
         flex-direction: row;
-        justify-content: center;
     }
 
     /* menu horizontal */
