@@ -118,10 +118,13 @@ body.menu-open .blur-overlay {
 .navigation li a {
     text-decoration: none;
     padding: 5px 10px;
+    border-radius: 8px;
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .navigation li a:hover {
     border-bottom: 2px solid rgba(175, 0, 0, 0.50);
+    background-color: rgba(175, 0, 0, 0.1);
 }
 
 .titre {
