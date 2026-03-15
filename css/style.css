@@ -785,6 +785,16 @@ footer .liens {
         font-size: 20px;
     }
 
+    #container3D,
+    #ObjectifRecherche,
+    #PrésentationProjet,
+    #ÉvolutionProjet,
+    #ProblemeProjet,
+    #programmation,
+    #RéflexionPerso {
+        scroll-margin-top: 110px;
+    }
+
     .titre {
         font-size: 80px;
         min-height: 360px;
