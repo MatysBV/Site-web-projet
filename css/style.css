@@ -181,6 +181,7 @@ section {
     max-width: 1200px;
     padding: 0 20px;
     gap: 80px;
+    padding-top: 40%;
 }
 
 h1 {
@@ -211,6 +212,7 @@ h1::after {
     justify-content: center;
     align-items: center;
     margin-bottom: 100px;
+    padding-top: 20%;
 }
 
 #container3D canvas {
@@ -477,14 +479,12 @@ section h2 {
     position: relative;
 }
 
-/* Contact icons */
 footer .contact i {
     margin-right: 8px;
     color: rgba(175, 0, 0, 0.6);
     font-size: 14px;
 }
 
-/* Scroll reveal animation */
 .section {
     opacity: 0;
     transform: translateY(40px);
